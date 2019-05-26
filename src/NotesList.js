@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Note from './Note';
+import { withRouter } from 'react-router-dom';
 
-function NotesList(props) {
-  const renderedNotesList = props.notes.map(note => {
+class NotesList extends Component {
+
+  handleAddNoteButton = () => {
+    this.props.history.push('/add-note')
+  }
+
+  render() {
+    const renderedNotesList = this.props.notes.map(note => {
+      return (
+        <li key={note.id}>
+          <Note note={note} />
+        </li>
+      )
+    });
+
     return (
-      <li key={note.id}>
-        <Note note={note} />
-      </li>
+      <ul className="NotesList">
+        {renderedNotesList}
+        <button onClick={this.handleAddNoteButton}>Add note</button>
+      </ul>
     )
-  });
-
-  return (
-    <ul className="NotesList">
-      {renderedNotesList}
-      <button>Add note</button>
-    </ul>
-  )
+  }
 }
 
-export default NotesList;
+export default withRouter(NotesList);

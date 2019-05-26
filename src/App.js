@@ -9,6 +9,7 @@ import NoteNavBar from './NoteNavBar';
 import ApiContext from './ApiContext';
 import config from './config';
 import AddFolder from './AddFolder';
+import AddNote from './AddNote';
 import FormNav from './FormNav';
 import './App.css';
 
@@ -18,7 +19,7 @@ class App extends Component {
     folders: DummyStore.folders,
   };
 
-  /*componentDidMount() {
+  componentDidMount() {
     Promise.all([
       fetch(`${config.API_ENDPOINT}/notes`),
       fetch(`${config.API_ENDPOINT}/folders`)
@@ -40,7 +41,7 @@ class App extends Component {
       .catch(error => {
         console.error({ error })
       })
-  }*/
+  }
 
   handleAddFolder = folder => {
     this.setState({
@@ -94,6 +95,10 @@ class App extends Component {
           path='/add-folder'
           component={FormNav}
         />
+        <Route
+          path='/add-note'
+          component={FormNav}
+        />
       </>
     );
   }
@@ -125,6 +130,10 @@ class App extends Component {
         <Route
           path='/add-folder'
           component={AddFolder}
+        />
+        <Route
+          path='/add-note'
+          component={AddNote}
         />
       </>
     );

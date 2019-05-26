@@ -1,13 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-class NoteNavBar extends React.Component{
+class FormNav extends React.Component{
   static defaultProps = {
     history: {
       goBack: () => { }
     },
-    folderName: PropTypes.string
   }
 
   render(){
@@ -19,10 +17,9 @@ class NoteNavBar extends React.Component{
         >
           Go Back
         </button>
-        <h2 className='DirectoryName'>{this.props.folderName}</h2>
       </nav>
     );
   }
 }
 
-export default withRouter(NoteNavBar);
+export default withRouter(FormNav);

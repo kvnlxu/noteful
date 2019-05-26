@@ -10,13 +10,22 @@
   grid-area: header;
   padding-left: 16px;
   padding-top: 32px;
-  text-align: center;
+  margin-left: 30px;
 }
 
 .App_Nav{
   grid-area: sidebar;
   height: 100vh;
   overflow: auto;
+}
+
+.BackButton{
+  margin-left: 16px;
+  margin-top: 32px;
+}
+
+.DirectoryName{
+  margin-left: 16px;
 }
 
 .App_main{
@@ -31,7 +40,7 @@
   margin: 130px 0 0;
 }
 
-.NavList li, .NotesList li{
+.NavList li{
   border: 1px solid black;
 }
 
@@ -40,8 +49,13 @@
   margin-bottom: 10px;
 }
 
-.NotesList li{
+.Note{
+  border: 1px solid black;
   padding: 10px;
-  width: 60%;
+  width: 500px;
   margin-bottom: 10px;
+}
+
+.NotePage{
+  padding-right: 100px;
 }
