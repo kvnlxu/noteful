@@ -11,6 +11,7 @@ import config from './config';
 import AddFolder from './AddFolder';
 import AddNote from './AddNote';
 import FormNav from './FormNav';
+import NotefulError from './NotefulError';
 import './App.css';
 
 class App extends Component {
@@ -156,9 +157,13 @@ class App extends Component {
               <Link to="/">Noteful</Link>
             </h1>
           </header>
-          {this.renderNavRoutes()}
+          <NotefulError>
+            {this.renderNavRoutes()}
+          </NotefulError>
           <main className='App_main'>
-            {this.renderMainRoutes()}
+            <NotefulError>
+              {this.renderMainRoutes()}
+            </NotefulError>
           </main>
         </div>
       </ApiContext.Provider>
