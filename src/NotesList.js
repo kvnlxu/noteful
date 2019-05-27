@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Note from './Note';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NotesList extends Component {
 
@@ -27,3 +28,13 @@ class NotesList extends Component {
 }
 
 export default withRouter(NotesList);
+
+NotesList.propTypes = {
+  notes: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    modified: PropTypes.string,
+    folderId: PropTypes.string,
+    content: PropTypes.string
+  }))
+};

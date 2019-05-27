@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import DummyStore from './dummy-store';
 import { Link, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import NotesList from './NotesList';
@@ -16,8 +15,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    notes: DummyStore.notes,
-    folders: DummyStore.folders,
+    notes: [],
+    folders: [],
   };
 
   componentDidMount() {

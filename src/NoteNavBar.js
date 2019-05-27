@@ -26,3 +26,7 @@ class NoteNavBar extends React.Component{
 }
 
 export default withRouter(NoteNavBar);
+
+NoteNavBar.propTypes = {
+  folderName: PropTypes.string
+}

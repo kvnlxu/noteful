@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import ApiContext from './ApiContext';
 import config from './config';
+import PropTypes from 'prop-types';
 
 export default class Note extends React.Component{
   static defaultProps ={
@@ -45,4 +46,14 @@ export default class Note extends React.Component{
       </div>
     );
   }
+}
+
+Note.propTypes = {
+  note: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    modified: PropTypes.string,
+    folderId: PropTypes.string,
+    content: PropTypes.string
+  }).isRequired
 }

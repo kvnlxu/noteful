@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class NavBar extends Component{
 
@@ -31,3 +32,10 @@ class NavBar extends Component{
 }
 
 export default withRouter(NavBar);
+
+NavBar.propTypes = {
+  folders: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string
+  }))
+};
