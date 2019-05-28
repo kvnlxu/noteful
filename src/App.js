@@ -123,7 +123,7 @@ class App extends Component {
         <Route path="/note/:noteId"
           render={routeProps =>
             <NotePage note={notes.find(
-              note => note.noteId === routeProps.match.params.NoteId)}
+              note => note.id === routeProps.match.params.noteId)}
             />
           }
         />
