@@ -1,17 +1,32 @@
 import React from 'react';
 import Note from './Note';
 import PropTypes from 'prop-types';
+import ApiContext from './ApiContext';
+import { withRouter } from 'react-router-dom';
 
-function NotePage(props){
-  return (
-    <div className="NotePage">
-      <Note note={props.note}/>
-      <p>{props.note.content}</p>
-    </div>
-  );
+class NotePage extends React.Component {
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
+  static contextType = ApiContext
+
+  handleDeleteNote = noteId => {
+    this.props.history.push(`/`)
+  }
+
+  render() {
+    return (
+      <div className="NotePage">
+        <Note note={this.props.note} onDeleteNote={this.handleDeleteNote}/>
+        <p>{this.props.note.content}</p>
+      </div>
+    )
+  }
 }
 
-export default NotePage;
+export default withRouter(NotePage)
 
 NotePage.propType = {
   note: PropTypes.shape({
