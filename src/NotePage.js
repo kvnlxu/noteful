@@ -19,7 +19,11 @@ class NotePage extends React.Component {
   render() {
     return (
       <div className="NotePage">
-        <Note note={this.props.note} onDeleteNote={this.handleDeleteNote}/>
+        <Note 
+          note={this.props.note} 
+          onDeleteNote={this.handleDeleteNote}
+          linkEnabled={false}
+        />
         <p>{this.props.note.content}</p>
       </div>
     )

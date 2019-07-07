@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 export default class Note extends React.Component{
   static defaultProps ={
     onDeleteNote: () => {},
+    linkEnabled: true,
   }
   static contextType = ApiContext;
 
@@ -32,15 +33,25 @@ export default class Note extends React.Component{
   }
 
   render(){
-    return (
-      <div className="Note">
-        <Link to={'/note/' + this.props.note.id}>
+    if (this.props.linkEnabled) {
+      return (
+        <div className="Note">
+          <Link to={'/note/' + this.props.note.id}>
+            <h2>{this.props.note.name}</h2>
+          </Link>
+          <p>Modified {format(this.props.note.modified, 'Do MMM YYYY')}</p>
+          <button onClick={this.handleClickDelete}>Delete Note</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="Note">
           <h2>{this.props.note.name}</h2>
-        </Link>
-        <p>Modified {format(this.props.note.modified, 'Do MMM YYYY')}</p>
-        <button onClick={this.handleClickDelete}>Delete Note</button>
-      </div>
-    );
+          <p>Modified {format(this.props.note.modified, 'Do MMM YYYY')}</p>
+          <button onClick={this.handleClickDelete}>Delete Note</button>
+        </div>
+      );
+    }
   }
 }
 
